@@ -11,27 +11,27 @@ import random, pygame, sys
 from pygame.locals import *
 
 FPS = 15
-WINDOWWIDTH = 640
-WINDOWHEIGHT = 480
-CELLSIZE = 20
-assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size."
-assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size."
-CELLWIDTH = int(WINDOWWIDTH / CELLSIZE)
-CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE)
+WINDOWWIDTH = 640 #game window width (x-direction)
+WINDOWHEIGHT = 480 #game window height (y-direction)
+CELLSIZE = 20 #size of the window
+assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size." #unsures a square window
+assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size." #ensures a square window
+CELLWIDTH = int(WINDOWWIDTH / CELLSIZE) #turns window height into an int value
+CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE) #turns window width into a int value
 
 #             R    G    B
-WHITE     = (255, 255, 255)
-BLACK     = (  0,   0,   0)
-RED       = (255,   0,   0)
-GREEN     = (  0, 255,   0)
-DARKGREEN = (  0, 155,   0)
-DARKGRAY  = ( 40,  40,  40)
-BGCOLOR = BLACK
+WHITE     = (255, 255, 255) #RGN|B value of white
+BLACK     = (  0,   0,   0) #RGB value of black
+RED       = (255,   0,   0) #RGB value of red
+GREEN     = (  0, 255,   0) #RBG value of green (lighter shade)
+DARKGREEN = (  0, 155,   0) #RGB value of green (darker shade
+DARKGRAY  = ( 40,  40,  40) #RGB value of grey (lighter black)
+BGCOLOR = BLACK #assigns game background to black
 
-UP = 'up'
-DOWN = 'down'
-LEFT = 'left'
-RIGHT = 'right'
+UP = 'up' #upwards movement button
+DOWN = 'down' #donwwards movement button
+LEFT = 'left' #right movement button
+RIGHT = 'right' #left movement button
 
 HEAD = 0 # syntactic sugar: index of the worm's head
 
@@ -40,7 +40,7 @@ def main():
 
     pygame.init()
     FPSCLOCK = pygame.time.Clock()
-    DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
+    DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT)) #displays the game window with the specified dimensions
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
     pygame.display.set_caption('Wormy')
 
@@ -48,6 +48,7 @@ def main():
     while True:
         runGame()
         showGameOverScreen()
+#above function -> imports pygame (needed to run game), and utilizes the fps counter (displays frames per second counter, display surface (new window), fonts (to display wording and numbers), and sets window caption (name of the open window running on the computer)
 
 
 def runGame():
@@ -114,8 +115,7 @@ def drawPressKeyMsg():
     pressKeySurf = BASICFONT.render('Press a key to play.', True, DARKGRAY)
     pressKeyRect = pressKeySurf.get_rect()
     pressKeyRect.topleft = (WINDOWWIDTH - 200, WINDOWHEIGHT - 30)
-    DISPLAYSURF.blit(pressKeySurf, pressKeyRect)
-
+    DISPLAYSURF.blit(pressKeySurf, pressKeyRect)    
 
 def checkForKeyPress():
     if len(pygame.event.get(QUIT)) > 0:
@@ -133,7 +133,8 @@ def showStartScreen():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
     titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKGREEN)
     titleSurf2 = titleFont.render('Wormy!', True, GREEN)
-
+#above funciton -> Purpose: show start screen (what is displayed when the window is opened?), It ill display either <Wormy!> in white and darkgreeen, or green (colours defined earlier)
+    
     degrees1 = 0
     degrees2 = 0
     while True:
