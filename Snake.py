@@ -28,10 +28,10 @@ DARKGREEN = (  0, 155,   0) #RGB value of green (darker shade
 DARKGRAY  = ( 40,  40,  40) #RGB value of grey (lighter black)
 BGCOLOR = BLACK #assigns game background to black
 
-UP = 'up' #upwards movement button
-DOWN = 'down' #donwwards movement button
-LEFT = 'left' #right movement button
-RIGHT = 'right' #left movement button
+UP = 'up' 
+DOWN = 'down' 
+LEFT = 'left' 
+RIGHT = 'right' 
 
 HEAD = 0 # syntactic sugar: index of the worm's head
 
@@ -67,18 +67,18 @@ def runGame():
         for event in pygame.event.get(): # event handling loop
             if event.type == QUIT:
                 terminate()
-            elif event.type == KEYDOWN:
+            elif event.type == KEYDOWN: 
                 if (event.key == K_LEFT or event.key == K_a) and direction != RIGHT:
-                    direction = LEFT
+                    direction = LEFT #when left button is pressed, move left
                 elif (event.key == K_RIGHT or event.key == K_d) and direction != LEFT:
-                    direction = RIGHT
+                    direction = RIGHT #when right button is pressed, move left
                 elif (event.key == K_UP or event.key == K_w) and direction != DOWN:
-                    direction = UP
+                    direction = UP #when up button is pressed, move up
                 elif (event.key == K_DOWN or event.key == K_s) and direction != UP:
-                    direction = DOWN
+                    direction = DOWN #when down button is pressed, move down
                 elif event.key == K_ESCAPE:
-                    terminate()
-
+                    terminate() #when escape is pressed, terminate
+                #purpose of previous 5 statements -> assign keybinds for the game
         # check if the worm has hit itself or the edge
         if wormCoords[HEAD]['x'] == -1 or wormCoords[HEAD]['x'] == CELLWIDTH or wormCoords[HEAD]['y'] == -1 or wormCoords[HEAD]['y'] == CELLHEIGHT:
             return # game over
