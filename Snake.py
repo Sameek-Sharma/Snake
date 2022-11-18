@@ -3,6 +3,10 @@
 # http://inventwithpython.com/pygame
 # Released under a "Simplified BSD" license
 
+# Sameek Sharma - SS
+# Abbygail Willett - AW
+# Melanie Bouzanne- MB
+
 import random, pygame, sys
 from pygame.locals import *
 
