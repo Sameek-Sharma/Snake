@@ -14,8 +14,8 @@ FPS = 15 #sets Frames per second
 WINDOWWIDTH = 640 #game window width (x-direction)
 WINDOWHEIGHT = 480 #game window height (y-direction)
 CELLSIZE = 20 #size of the window
-assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size." #unsures a square window
-assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size." #ensures a square window
+assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size." #unsures correct aspect ratio for window
+assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size." #ensures correct aspect ratio for window
 CELLWIDTH = int(WINDOWWIDTH / CELLSIZE) #turns window height into an int value
 CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE) #turns window width into a int value
 
@@ -48,7 +48,7 @@ def main():
     while True:
         runGame()
         showGameOverScreen()
-#above function -> imports pygame (needed to run game), and utilizes the fps counter (displays frames per second counter, display surface (new window), fonts (to display wording and numbers), and sets window caption (name of the open window running on the computer)
+#above function ->  Opens the game and shows the window over the current on (sets priority), sets a clock to track time, display surface (new window), fonts (to display wording and numbers), and sets window caption (name of the open window running on the computer)
 
 
 def runGame():
