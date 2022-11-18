@@ -10,14 +10,14 @@
 import random, pygame, sys
 from pygame.locals import * #imports pygame and all of the neccessary functions that are neccessary to run the game
 
-FPS = 15 #Frames per second
+FPS = 15 #sets Frames per second
 WINDOWWIDTH = 640 #game window width (x-direction)
 WINDOWHEIGHT = 480 #game window height (y-direction)
-CELLSIZE = 20
+CELLSIZE = 20 #size of the window
 assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size." #ensures correct aspect ratio for window
 assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size." #ensures correct aspect ratio for window
-CELLWIDTH = int(WINDOWWIDTH / CELLSIZE) #turns window height into an int value
-CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE) #turns window width into a int value
+CELLWIDTH = int(WINDOWWIDTH / CELLSIZE) #turns window width into an int value
+CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE) #turns window height into a int value
 
 #             R    G    B
 WHITE     = (255, 255, 255) #RGB value of white
