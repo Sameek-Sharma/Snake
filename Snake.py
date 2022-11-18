@@ -8,9 +8,9 @@
 # Melanie Bouzanne- MB
 
 import random, pygame, sys
-from pygame.locals import *
+from pygame.locals import * #imports pygame and all of the neccessary functions that are neccessary to run the game
 
-FPS = 15
+FPS = 15 #sets Frames per second
 WINDOWWIDTH = 640 #game window width (x-direction)
 WINDOWHEIGHT = 480 #game window height (y-direction)
 CELLSIZE = 20 #size of the window
@@ -20,7 +20,7 @@ CELLWIDTH = int(WINDOWWIDTH / CELLSIZE) #turns window height into an int value
 CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE) #turns window width into a int value
 
 #             R    G    B
-WHITE     = (255, 255, 255) #RGN|B value of white
+WHITE     = (255, 255, 255) #RGB value of white
 BLACK     = (  0,   0,   0) #RGB value of black
 RED       = (255,   0,   0) #RGB value of red
 GREEN     = (  0, 255,   0) #RBG value of green (lighter shade)
@@ -115,7 +115,8 @@ def drawPressKeyMsg():
     pressKeySurf = BASICFONT.render('Press a key to play.', True, DARKGRAY)
     pressKeyRect = pressKeySurf.get_rect()
     pressKeyRect.topleft = (WINDOWWIDTH - 200, WINDOWHEIGHT - 30)
-    DISPLAYSURF.blit(pressKeySurf, pressKeyRect)    
+    DISPLAYSURF.blit(pressKeySurf, pressKeyRect)
+#above function -> design and print of message prompting the viewer to enter a key to start the game
 
 def checkForKeyPress():
     if len(pygame.event.get(QUIT)) > 0:
@@ -127,7 +128,7 @@ def checkForKeyPress():
     if keyUpEvents[0].key == K_ESCAPE:
         terminate()
     return keyUpEvents[0].key
-
+#above function -> checks for a key press and does what the key requests: quit the game when the quit button is pressed, 
 
 def showStartScreen():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
