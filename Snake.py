@@ -13,7 +13,7 @@ from pygame.locals import * #imports pygame and all of the neccessary functions 
 FPS = 15 #sets Frames per second
 WINDOWWIDTH = 640 #game window width (x-direction)
 WINDOWHEIGHT = 480 #game window height (y-direction)
-CELLSIZE = 20 #scaling value for screen size
+CELLSIZE = 20 #size value for individual square
 assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size." #ensures correct aspect ratio for window
 assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size." #ensures correct aspect ratio for window
 CELLWIDTH = int(WINDOWWIDTH / CELLSIZE) #turns window width into an int value
