@@ -26,7 +26,7 @@ RED       = (255,   0,   0) #RGB value of red
 GREEN     = (  0, 255,   0) #RBG value of green (lighter shade)
 DARKGREEN = (  0, 155,   0) #RGB value of green (darker shade
 DARKGRAY  = ( 40,  40,  40) #RGB value of grey (lighter black)
-BGCOLOR = BLACK #assigns game background to black
+BGCOLOR = BLACK #game background is black
 
 UP = 'up' 
 DOWN = 'down' 
