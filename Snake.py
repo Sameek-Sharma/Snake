@@ -16,8 +16,8 @@ WINDOWHEIGHT = 480 #game window height (y-direction)
 CELLSIZE = 20 #size value for individual square
 assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size." #ensures correct aspect ratio for window
 assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size." #ensures correct aspect ratio for window
-CELLWIDTH = int(WINDOWWIDTH / CELLSIZE) #turns window width into an int value
-CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE) #turns window height into a int value
+CELLWIDTH = int(WINDOWWIDTH / CELLSIZE) #finds int value of squares in horizontal
+CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE) #finds int value of squares in vertical
 
 #             R    G    B
 WHITE     = (255, 255, 255) #RGB value of white
