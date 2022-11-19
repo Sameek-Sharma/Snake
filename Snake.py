@@ -48,7 +48,7 @@ def main():
     while True:
         runGame()
         showGameOverScreen()
-#above function ->  Opens the game and shows the window over the current on (sets priority), sets a clock to track time, display surface (new window), fonts (to display wording and numbers), and sets window caption (name of the open window running on the computer)
+#above function ->  Opens the game and shows the window over the current on (sets priority), sets a clock animation for start screen, display surface (new window), fonts (to display wording and numbers), and sets window caption (name of the open window running on the computer)
 
 
 def runGame():
@@ -134,7 +134,7 @@ def showStartScreen():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
     titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKGREEN)
     titleSurf2 = titleFont.render('Wormy!', True, GREEN)
-#above funciton -> Purpose: show start screen (what is displayed when the window is opened?), It ill display either <Wormy!> in white and darkgreeen, or green (colours defined earlier)
+#above funciton -> Purpose: show start screen (what is displayed when the window is opened?), It will display <Wormy!> in white, darkgreeen, and green (colours defined earlier)
     
     degrees1 = 0
     degrees2 = 0
@@ -164,11 +164,11 @@ def showStartScreen():
 def terminate():
     pygame.quit()
     sys.exit()
-
+#above function -> terminates the game and window when the user inputs that the game should be closed
 
 def getRandomLocation():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
-
+#above function -> gets a random number that lies on the playing field for different applications
 
 def showGameOverScreen():
     gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
@@ -190,13 +190,14 @@ def showGameOverScreen():
         if checkForKeyPress():
             pygame.event.get() # clear event queue
             return
-
+#above function -> sets the <game over> visual with colour, size and position, clears key press que, and waits for a new key input (to restart game)
+        
 def drawScore(score):
     scoreSurf = BASICFONT.render('Score: %s' % (score), True, WHITE)
     scoreRect = scoreSurf.get_rect()
     scoreRect.topleft = (WINDOWWIDTH - 120, 10)
     DISPLAYSURF.blit(scoreSurf, scoreRect)
-
+#above function -> sets scoreboard visual with colour, size, and position
 
 def drawWorm(wormCoords):
     for coord in wormCoords:
