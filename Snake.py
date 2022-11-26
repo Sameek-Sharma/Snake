@@ -53,8 +53,10 @@ def main():
 
 def runGame():
     # Set a random start point.
-    startx = random.randint(5, CELLWIDTH - 6)
-    starty = random.randint(5, CELLHEIGHT - 6)
+    startx = random.randint(5, CELLWIDTH - 6) # startx  
+    starty = random.randint(5, CELLHEIGHT - 6) # 
+    
+    # the variable wormCoords stores the cordinates of the body of the worm in a list of dictionary values 
     wormCoords = [{'x': startx,     'y': starty},
                   {'x': startx - 1, 'y': starty},
                   {'x': startx - 2, 'y': starty}]
@@ -104,10 +106,10 @@ def runGame():
             newHead = {'x': wormCoords[HEAD]['x'] + 1, 'y': wormCoords[HEAD]['y']}
         wormCoords.insert(0, newHead)
         DISPLAYSURF.fill(BGCOLOR)
-        drawGrid()
-        drawWorm(wormCoords)
-        drawApple(apple)
-        drawScore(len(wormCoords) - 3)
+        drawGrid() # calls function drawGrid (defined below) -MB
+        drawWorm(wormCoords) # calls function drawWorm (defined below) using the wormCoords variable -MB
+        drawApple(apple) # calls function drawApple (defied below) using the apple variable -MB
+        drawScore(len(wormCoords) - 3) # calls function drawScore using the len function to determine the lenght of variable wormCoords (which stores the body), then subtacks the starting body (lenght 3) to determine score -MB 
         pygame.display.update()
         FPSCLOCK.tick(FPS)
 
