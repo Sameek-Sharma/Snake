@@ -53,8 +53,8 @@ def main():
 
 def runGame():
     # Set a random start point.
-    startx = random.randint(5, CELLWIDTH - 6) # startx  
-    starty = random.randint(5, CELLHEIGHT - 6) # 
+    startx = random.randint(5, CELLWIDTH - 6) # variable startx chooses a random value for the x coordinate (CELLWIDTH - 6 makes sure the starting x coordinate is not to close to the edge of the board) -MB 
+    starty = random.randint(5, CELLHEIGHT - 6) # variable starty chooses a random value for the y coordinate (CELLHEIGHT - 6 makes sure the starting y coordinate is not to close to the edge of the board) -MB 
     
     # the variable wormCoords stores the cordinates of the body of the worm in a list of dictionary values 
     wormCoords = [{'x': startx,     'y': starty},
