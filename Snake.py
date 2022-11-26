@@ -10,7 +10,7 @@
 import random, pygame, sys
 from pygame.locals import * #imports pygame and all of the neccessary functions that are neccessary to run the game
 
-FPS = 15 #sets Frames per second
+FPS = 15 #sets game speed
 WINDOWWIDTH = 640 #game window width (x-direction)
 WINDOWHEIGHT = 480 #game window height (y-direction)
 CELLSIZE = 20 #size value for individual square
