@@ -56,11 +56,12 @@ def runGame():
     startx = random.randint(5, CELLWIDTH - 6) # variable startx chooses a random value for the x coordinate (CELLWIDTH - 6 makes sure the starting x coordinate is not to close to the edge of the board) -MB 
     starty = random.randint(5, CELLHEIGHT - 6) # variable starty chooses a random value for the y coordinate (CELLHEIGHT - 6 makes sure the starting y coordinate is not to close to the edge of the board) -MB 
     
-    # the variable wormCoords stores the cordinates of the body of the worm in a list of dictionary values 
+    # the variable wormCoords stores the cordinates of the body of the worm in a list of dictionary values, the XY coordinates have keys 'x' & 'y' -MB
     wormCoords = [{'x': startx,     'y': starty},
                   {'x': startx - 1, 'y': starty},
                   {'x': startx - 2, 'y': starty}]
     direction = RIGHT
+    # the worm starts with an inital direction right, with a head (at coordinates 'x' and 'y') and two more body segments -MB
 
     # Start the apple in a random place.
     apple = getRandomLocation()
@@ -81,9 +82,14 @@ def runGame():
                 elif event.key == K_ESCAPE:
                     terminate() #when escape is pressed, terminate
                 #purpose of previous 5 statements -> assign keybinds for the game
-        # check if the worm has hit itself or the edge
+      
+        # checks if worm has hit edge
+        # checks if the x or y coordinates of the head is past the left or top edge (if wormCoords[HEAD] 'x' or 'y' = -1) or if the  x or y coordinates of the head are past the right or bottom edge (when wormCoords[HEAD] 'x' or 'y' = the CELLWIDTH or CELLHEIGHT) -MB
         if wormCoords[HEAD]['x'] == -1 or wormCoords[HEAD]['x'] == CELLWIDTH or wormCoords[HEAD]['y'] == -1 or wormCoords[HEAD]['y'] == CELLHEIGHT:
             return # game over
+        
+        # check if the worm has hit itself
+        # runs a loop to check each body segment (execpt head at index [0]) to see if the x and y coordinates of the head ever equal the x and y coordinates of the body -MB
         for wormBody in wormCoords[1:]:
             if wormBody['x'] == wormCoords[HEAD]['x'] and wormBody['y'] == wormCoords[HEAD]['y']:
                 return # game over
