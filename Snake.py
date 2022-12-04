@@ -111,12 +111,12 @@ def runGame():
         elif direction == RIGHT:
             newHead = {'x': wormCoords[HEAD]['x'] + 1, 'y': wormCoords[HEAD]['y']}
         wormCoords.insert(0, newHead) # the insert function* changes wormCoord by adding the value of newHead coordinates in index[0], therfore replacing the old head coordinates -MB
-        DISPLAYSURF.fill(BGCOLOR)
+        DISPLAYSURF.fill(BGCOLOR) # calls function DISPLAYSURF (defined above) fills entire display surface with the background color (defined above)
         drawGrid() # calls function drawGrid (defined below) -MB
         drawWorm(wormCoords) # calls function drawWorm (defined below) using the wormCoords variable -MB
         drawApple(apple) # calls function drawApple (defied below) using the apple variable -MB
         drawScore(len(wormCoords) - 3) # calls function drawScore using the len function to determine the lenght of variable wormCoords (which stores the body), then subtacks the starting body (lenght 3) to determine score -MB 
-        pygame.display.update()
+        pygame.display.update() 
         FPSCLOCK.tick(FPS)
 
 def drawPressKeyMsg():
@@ -218,7 +218,7 @@ def drawWorm(wormCoords):
 
 
 def drawApple(coord):
-    x = coord['x'] * CELLSIZE
+    x = coord['x'] * CELLSIZE 
     y = coord['y'] * CELLSIZE
     appleRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
     pygame.draw.rect(DISPLAYSURF, RED, appleRect)
