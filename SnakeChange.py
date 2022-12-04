@@ -68,14 +68,15 @@ def runGame():
             if event.type == QUIT:
                 terminate()
             elif event.type == KEYDOWN: 
-                if (event.key == K_LEFT or event.key == K_a) and direction != RIGHT:
-                    direction = LEFT 
-                elif (event.key == K_RIGHT or event.key == K_d) and direction != LEFT:
+                if (event.key == K_LEFT or event.key == K_a) and direction != LEFT:
                     direction = RIGHT 
-                elif (event.key == K_UP or event.key == K_w) and direction != DOWN:
-                    direction = UP 
-                elif (event.key == K_DOWN or event.key == K_s) and direction != UP:
+                elif (event.key == K_RIGHT or event.key == K_d) and direction != RIGHT:
+                    direction = LEFT 
+                elif (event.key == K_UP or event.key == K_w) and direction != UP:
                     direction = DOWN 
+                elif (event.key == K_DOWN or event.key == K_s) and direction != DOWN:
+                    direction = UP
+        # reversed left and right and up and down
                 elif event.key == K_ESCAPE:
                     terminate()
                 
@@ -89,6 +90,10 @@ def runGame():
         
         if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
             apple = getRandomLocation()
+         #Changes
+        elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
+            pear = getRandomLocation()
+            wormCoords.extend(1)
         else:
             del wormCoords[-1] 
 
@@ -101,6 +106,7 @@ def runGame():
             newHead = {'x': wormCoords[HEAD]['x'] - 1, 'y': wormCoords[HEAD]['y']}
         elif direction == RIGHT:
             newHead = {'x': wormCoords[HEAD]['x'] + 1, 'y': wormCoords[HEAD]['y']}
+            
         wormCoords.insert(0, newHead)
         DISPLAYSURF.fill(BGCOLOR)
         drawGrid()
