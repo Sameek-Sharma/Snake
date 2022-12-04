@@ -170,7 +170,10 @@ def terminate():
     pygame.quit()
     sys.exit()
 
-    
+
+def getRandomChoice():
+    random.choice()
+
 def getRandomLocation():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
 
