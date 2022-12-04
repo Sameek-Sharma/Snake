@@ -33,7 +33,7 @@ DOWN = 'down'
 LEFT = 'left' 
 RIGHT = 'right' 
 
-HEAD = 0 # syntactic sugar: index of the worm's head
+HEAD = 0 # index of the worm's head
 
 def main():
     global FPSCLOCK, DISPLAYSURF, BASICFONT
