@@ -216,11 +216,13 @@ def drawWorm(wormCoords):
         wormSegmentRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE) # pygame.Rect -> is an object for storing rectangular coordinates [.Rect(left, top, width, height)]
         # wormSegmentRect use pygame.Rect to define a rectangle (left and top coordinates defined by x and y then height and width determine by CELLSIZE)
             
-        pygame.draw.rect(DISPLAYSURF, DARKGREEN, wormSegmentRect) # pygame.draw.rect -> draws a rectangle (surface = DISPLAYSURF, color = DARKGREEN, rect = wormSegmentRect)
+        pygame.draw.rect(DISPLAYSURF, DARKGREEN, wormSegmentRect) # pygame.draw.rect -> draws a rectangle parameters: surface = DISPLAYSURF, color = DARKGREEN, rect = wormSegmentRect
       
         wormInnerSegmentRect = pygame.Rect(x + 4, y + 4, CELLSIZE - 8, CELLSIZE - 8)
          # wormInnerSegmentRect use pygame.Rect to define a rectangle (left and top coordinates defined by x and y (+4 starts 4 pixels to right and below) then height and width determine by CELLSIZE (-8 height and width are 8 pixels less then the cellsize))
-        pygame.draw.rect(DISPLAYSURF, GREEN, wormInnerSegmentRect)
+            
+        pygame.draw.rect(DISPLAYSURF, GREEN, wormInnerSegmentRect) # pygame.draw.rect -> draws a rectangle, parameters: surface = DISPLAYSURF, color = GREEN, rect = wormInnerSegmentRect
+
 # above function -> runs a loop to draw a each segment of the worms body for each dictionary values in wormCoords
 #                   each segment of the worms body is displayed as a green box
 
@@ -231,15 +233,16 @@ def drawApple(coord):
     appleRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE) # pygame.Rect -> is an object for storing rectangular coordinates [.Rect(left, top, width, height)]
     # appleRect use pygame.Rect to define a rectangle (left and top coordinates defined by x and y then height and width determine by CELLSIZE)
     
-    pygame.draw.rect(DISPLAYSURF, RED, appleRect)
+    pygame.draw.rect(DISPLAYSURF, RED, appleRect)  # pygame.draw.rect -> draws a rectangle, parameters: surface = DISPLAYSURF, color = RED, rect = appleRect
 # above function -> draws a red rectangle, using coordinates values stored in the dictionary keys 'x' and 'y' then scaled by CELLSIZE
 
 
 def drawGrid():
     for x in range(0, WINDOWWIDTH, CELLSIZE): # draw vertical lines
-        pygame.draw.line(DISPLAYSURF, DARKGRAY, (x, 0), (x, WINDOWHEIGHT))
+        pygame.draw.line(DISPLAYSURF, DARKGRAY, (x, 0), (x, WINDOWHEIGHT)) # pygame.draw.line -> drawa a stright line, parameters: surface = DISPLAYSURF, color = DARKGRAY, start position (x, 0), end position (x, WINDOWHEIGHT)
     for y in range(0, WINDOWHEIGHT, CELLSIZE): # draw horizontal lines
-        pygame.draw.line(DISPLAYSURF, DARKGRAY, (0, y), (WINDOWWIDTH, y))
+        pygame.draw.line(DISPLAYSURF, DARKGRAY, (0, y), (WINDOWWIDTH, y)) # pygame.draw.line -> drawa a stright line, parameters: surface = DISPLAYSURF, color = DARKGRAY, start position (0, y), end position (WINDOWWIDTH, y)
+# above function -> draws the grid using a for loop to run through the range of x and y
 
 
 if __name__ == '__main__':
