@@ -24,8 +24,8 @@ WHITE     = (255, 255, 255)
 BLACK     = (  0,   0,   0) 
 RED       = (255,   0,   0) 
 GREEN     = (  0, 255,   0) 
-BLUE      = (  0,   0, 255)
-DARKBLUE = (  0, 0, 155) 
+BLUE      = (  0,   0, 255) #CHANGED
+DARKBLUE = (  0, 0, 155) #CHANGED
 DARKGRAY  = ( 40,  40,  40) 
 BGCOLOR = BLACK 
 
@@ -93,8 +93,8 @@ def runGame():
             apple = getRandomLocation()
          #Changes
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
-            pear = getRandomLocation()
             wormCoords.extend(1)
+            pear = getRandomLocation()
         else:
             del wormCoords[-1] 
 
@@ -113,6 +113,7 @@ def runGame():
         drawGrid()
         drawWorm(wormCoords)
         drawApple(apple)
+        drawPear(pear)
         drawScore(len(wormCoords) - 3)
         pygame.display.update()
         FPSCLOCK.tick(FPS)
@@ -215,9 +216,9 @@ def drawWorm(wormCoords):
         x = coord['x'] * CELLSIZE
         y = coord['y'] * CELLSIZE
         wormSegmentRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
-        pygame.draw.rect(DISPLAYSURF, DARKBLUE, wormSegmentRect)
+        pygame.draw.rect(DISPLAYSURF, DARKBLUE, wormSegmentRect) #CHANGED
         wormInnerSegmentRect = pygame.Rect(x + 4, y + 4, CELLSIZE - 8, CELLSIZE - 8)
-        pygame.draw.rect(DISPLAYSURF, BLUE, wormInnerSegmentRect)
+        pygame.draw.rect(DISPLAYSURF, BLUE, wormInnerSegmentRect) #CHANGED
 
 
 def drawApple(coord_apple):
@@ -231,7 +232,7 @@ def drawPear(coord_pear):
     x = coord_pear['x'] * CELLSIZE
     y = coord_pear['y'] * CELLSIZE
     pearRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
-    pygame.draw.rect(DISPLAYSURF, RED, pearRect) 
+    pygame.draw.rect(DISPLAYSURF, GREEN, pearRect) 
     
 
 
