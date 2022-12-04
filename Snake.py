@@ -247,3 +247,4 @@ def drawGrid():
 
 if __name__ == '__main__':
     main()
+# main() function called to run the program
