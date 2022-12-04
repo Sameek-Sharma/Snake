@@ -142,8 +142,7 @@ def showStartScreen():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
     titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKGREEN)
     titleSurf2 = titleFont.render('Wormy!', True, GREEN)
-#above funciton -> Purpose: show start screen (what is displayed when the window is opened?), It will display <Wormy!> in white, darkgreeen, and green (colours defined earlier)
-    
+   
     degrees1 = 0
     degrees2 = 0
     while True:
@@ -157,7 +156,8 @@ def showStartScreen():
         rotatedRect2 = rotatedSurf2.get_rect()
         rotatedRect2.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 2)
         DISPLAYSURF.blit(rotatedSurf2, rotatedRect2)
-
+# while True -> it rotates the two text "Wormy!'
+        
         drawPressKeyMsg()
 
         if checkForKeyPress():
@@ -167,7 +167,9 @@ def showStartScreen():
         FPSCLOCK.tick(FPS)
         degrees1 += 3 # rotate by 3 degrees each frame
         degrees2 += 7 # rotate by 7 degrees each frame
+#above funciton -> Purpose: show start screen, It will display <Wormy!> in white, darkgreeen, and green (colours defined earlier)
 
+        
 
 def terminate():
     pygame.quit()
@@ -176,7 +178,8 @@ def terminate():
 
 def getRandomLocation():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
-#above function -> gets a random number that lies on the playing field for different applications
+#above function -> returns a dictionary with keys 'x' and 'y' that have random vaule within the defined areas CEllHEIGHT and CELLWIDTH
+#                  above function is called when new random coordinates for an apple are needed
 
 def showGameOverScreen():
     gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
