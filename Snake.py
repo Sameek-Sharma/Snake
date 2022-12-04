@@ -56,15 +56,14 @@ def runGame():
     startx = random.randint(5, CELLWIDTH - 6) # variable startx chooses a random value for the x coordinate (CELLWIDTH - 6 makes sure the starting x coordinate is not to close to the edge of the board) -MB 
     starty = random.randint(5, CELLHEIGHT - 6) # variable starty chooses a random value for the y coordinate (CELLHEIGHT - 6 makes sure the starting y coordinate is not to close to the edge of the board) -MB 
     
-    # the variable wormCoords stores the cordinates of the body of the worm in a list of dictionary values, the XY coordinates have keys 'x' & 'y' -MB
     wormCoords = [{'x': startx,     'y': starty},
                   {'x': startx - 1, 'y': starty},
                   {'x': startx - 2, 'y': starty}]
+    # the variable wormCoords stores the cordinates of the body of the worm in a list of dictionary values, the XY coordinates have keys 'x' & 'y' -MB
     direction = RIGHT
     # the worm starts with an inital direction right, with a head (at coordinates 'x' and 'y') and two more body segments -MB
 
-    # Start the apple in a random place.
-    apple = getRandomLocation()
+    apple = getRandomLocation()  # calls function getRandomLocation (defined below) to start the apple in a random place
 
     while True: # main game loop
         for event in pygame.event.get(): # event handling loop
@@ -189,7 +188,7 @@ def showGameOverScreen():
     overRect = overSurf.get_rect()
     gameRect.midtop = (WINDOWWIDTH / 2, 10)
     overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25)
-
+    
     DISPLAYSURF.blit(gameSurf, gameRect)
     DISPLAYSURF.blit(overSurf, overRect)
     drawPressKeyMsg()
@@ -214,17 +213,26 @@ def drawWorm(wormCoords):
     for coord in wormCoords:
         x = coord['x'] * CELLSIZE
         y = coord['y'] * CELLSIZE
-        wormSegmentRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
-        pygame.draw.rect(DISPLAYSURF, DARKGREEN, wormSegmentRect)
+        wormSegmentRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE) # pygame.Rect -> is an object for storing rectangular coordinates [.Rect(left, top, width, height)]
+        # wormSegmentRect use pygame.Rect to define a rectangle (left and top coordinates defined by x and y then height and width determine by CELLSIZE)
+            
+        pygame.draw.rect(DISPLAYSURF, DARKGREEN, wormSegmentRect) # pygame.draw.rect -> draws a rectangle (surface = DISPLAYSURF, color = DARKGREEN, rect = wormSegmentRect)
+      
         wormInnerSegmentRect = pygame.Rect(x + 4, y + 4, CELLSIZE - 8, CELLSIZE - 8)
+         # wormInnerSegmentRect use pygame.Rect to define a rectangle (left and top coordinates defined by x and y (+4 starts 4 pixels to right and below) then height and width determine by CELLSIZE (-8 height and width are 8 pixels less then the cellsize))
         pygame.draw.rect(DISPLAYSURF, GREEN, wormInnerSegmentRect)
+# above function -> runs a loop to draw a each segment of the worms body for each dictionary values in wormCoords
+#                   each segment of the worms body is displayed as a green box
 
 
 def drawApple(coord):
     x = coord['x'] * CELLSIZE 
     y = coord['y'] * CELLSIZE
-    appleRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
+    appleRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE) # pygame.Rect -> is an object for storing rectangular coordinates [.Rect(left, top, width, height)]
+    # appleRect use pygame.Rect to define a rectangle (left and top coordinates defined by x and y then height and width determine by CELLSIZE)
+    
     pygame.draw.rect(DISPLAYSURF, RED, appleRect)
+# above function -> draws a red rectangle, using coordinates values stored in the dictionary keys 'x' and 'y' then scaled by CELLSIZE
 
 
 def drawGrid():
