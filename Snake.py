@@ -73,7 +73,7 @@ def runGame():
                 if (event.key == K_LEFT or event.key == K_a) and direction != RIGHT:
                     direction = LEFT #when left button is pressed, move left
                 elif (event.key == K_RIGHT or event.key == K_d) and direction != LEFT:
-                    direction = RIGHT #when right button is pressed, move left
+                    direction = RIGHT #when right button is pressed, move right
                 elif (event.key == K_UP or event.key == K_w) and direction != DOWN:
                     direction = UP #when up button is pressed, move up
                 elif (event.key == K_DOWN or event.key == K_s) and direction != UP:
