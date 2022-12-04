@@ -24,7 +24,8 @@ WHITE     = (255, 255, 255)
 BLACK     = (  0,   0,   0) 
 RED       = (255,   0,   0) 
 GREEN     = (  0, 255,   0) 
-DARKGREEN = (  0, 155,   0) 
+BLUE      = (  0,   0, 255)
+DARKBLUE = (  0, 0, 155) 
 DARKGRAY  = ( 40,  40,  40) 
 BGCOLOR = BLACK 
 
@@ -137,8 +138,8 @@ def checkForKeyPress():
 
 def showStartScreen():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKGREEN)
-    titleSurf2 = titleFont.render('Wormy!', True, GREEN)
+    titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKBLUE)
+    titleSurf2 = titleFont.render('Wormy!', True, BLUE)
 
     
     degrees1 = 0
@@ -170,12 +171,14 @@ def terminate():
     pygame.quit()
     sys.exit()
 
-
-def getRandomChoice():
-    random.choice()
+    
 
 def getRandomLocation():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
+
+#CHANGED 
+def getRandomChoice():
+    return random.choice([apple, pear])
 
 
 def showGameOverScreen():
@@ -212,16 +215,24 @@ def drawWorm(wormCoords):
         x = coord['x'] * CELLSIZE
         y = coord['y'] * CELLSIZE
         wormSegmentRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
-        pygame.draw.rect(DISPLAYSURF, DARKGREEN, wormSegmentRect)
+        pygame.draw.rect(DISPLAYSURF, DARKBLUE, wormSegmentRect)
         wormInnerSegmentRect = pygame.Rect(x + 4, y + 4, CELLSIZE - 8, CELLSIZE - 8)
-        pygame.draw.rect(DISPLAYSURF, GREEN, wormInnerSegmentRect)
+        pygame.draw.rect(DISPLAYSURF, BLUE, wormInnerSegmentRect)
 
 
-def drawApple(coord):
-    x = coord['x'] * CELLSIZE
-    y = coord['y'] * CELLSIZE
+def drawApple(coord_apple):
+    x = coord_apple['x'] * CELLSIZE
+    y = coord_apple['y'] * CELLSIZE
     appleRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
     pygame.draw.rect(DISPLAYSURF, RED, appleRect)
+    
+#CHANGED   
+def drawPear(coord_pear):
+    x = coord_pear['x'] * CELLSIZE
+    y = coord_pear['y'] * CELLSIZE
+    pearRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
+    pygame.draw.rect(DISPLAYSURF, RED, pearRect) 
+    
 
 
 def drawGrid():
