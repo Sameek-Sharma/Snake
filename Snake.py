@@ -83,24 +83,24 @@ def runGame():
                 #purpose of previous 5 statements -> assign keybinds for the game
       
         # checks if worm has hit edge
-        # checks if the x or y coordinates of the head is past the left or top edge (if wormCoords[HEAD] 'x' or 'y' = -1) or if the  x or y coordinates of the head are past the right or bottom edge (when wormCoords[HEAD] 'x' or 'y' = the CELLWIDTH or CELLHEIGHT) -MB
         if wormCoords[HEAD]['x'] == -1 or wormCoords[HEAD]['x'] == CELLWIDTH or wormCoords[HEAD]['y'] == -1 or wormCoords[HEAD]['y'] == CELLHEIGHT:
+        # checks if the x or y coordinates of the head is past the left or top edge (if wormCoords[HEAD] 'x' or 'y' = -1) or if the  x or y coordinates of the head are past the right or bottom edge (when wormCoords[HEAD] 'x' or 'y' = the CELLWIDTH or CELLHEIGHT) -MB
             return # game over
         
         # check if the worm has hit itself
-        # runs a loop to check each index in wormCoord, which store the body segments (execpt for the head at index [0]) to see if the x and y coordinates of the head ever equal the x and y coordinates of the body -MB
         for wormBody in wormCoords[1:]:
             if wormBody['x'] == wormCoords[HEAD]['x'] and wormBody['y'] == wormCoords[HEAD]['y']:
+        # runs a loop to check each index in wormCoord, which store the body segments (execpt for the head at index [0]) to see if the x and y coordinates of the head ever equal the x and y coordinates of the body -MB
                 return # game over
 
-        # check if both the x and y coordinates of the worm = the same x and y coordinates of the apple -MB
+        
         if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
+        # check if both the x and y coordinates of the worm = the same x and y coordinates of the apple -MB
             apple = getRandomLocation() # set a new apple somewhere
         else:
             del wormCoords[-1] # if the head doesn't collied with an apple then the last segment of the worm (index [-1]) gets removed -MB
 
-        # move the worm by adding a segment in the direction it is moving
-        # the new body segment is being added to the beginning of the list therfore the coordinates of the new head is + or - 1 of the x or y coordinate depending on the choosen direction -MB
+       
         if direction == UP:
             newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 1}
         elif direction == DOWN:
@@ -109,6 +109,9 @@ def runGame():
             newHead = {'x': wormCoords[HEAD]['x'] - 1, 'y': wormCoords[HEAD]['y']}
         elif direction == RIGHT:
             newHead = {'x': wormCoords[HEAD]['x'] + 1, 'y': wormCoords[HEAD]['y']}
+          # move the worm by adding a segment in the direction it is moving
+        # the new body segment is being added to the beginning of the list therfore the coordinates of the new head is + or - 1 of the x or y coordinate depending on the choosen direction -MB 
+           
         wormCoords.insert(0, newHead) # the insert function* changes wormCoord by adding the value of newHead coordinates in index[0], therfore replacing the old head coordinates -MB
         DISPLAYSURF.fill(BGCOLOR) # calls function DISPLAYSURF (defined above) fills entire display surface with the background color (defined above)
         drawGrid() # calls function drawGrid (defined below) -MB
