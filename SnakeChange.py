@@ -62,7 +62,7 @@ def runGame():
     direction = RIGHT
 
     
-    apple = getRandomLocation()
+    food = getRandomChoice() #CHANGED
 
     while True: 
         for event in pygame.event.get(): 
@@ -90,11 +90,11 @@ def runGame():
 
         
         if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
-            apple = getRandomLocation()
+            apple = getRandomChoice()
          #Changes
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
             wormCoords.extend(1)
-            pear = getRandomLocation()
+            pear = getRandomChoice()
         else:
             del wormCoords[-1] 
 
@@ -174,13 +174,23 @@ def terminate():
 
     
 
-def getRandomLocation():
+def getRandomLocationApple():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
+
+def getRandomLocationPear():
+    return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
+
 
 #CHANGED 
 def getRandomChoice():
+    apple = getRandomLocationApple()
+    pear = getRandomLocationPear()
     return random.choice([apple, pear])
+    
 
+
+    
+    
 
 def showGameOverScreen():
     gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
