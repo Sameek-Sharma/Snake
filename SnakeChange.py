@@ -99,8 +99,9 @@ def runGame():
             
             
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
-            del wormCoords[-2]
-            pear = getRandomLocationPear() 
+            return
+           
+            
         #Changes
         else:
             del wormCoords[-1] 
