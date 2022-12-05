@@ -10,6 +10,7 @@
 import random, pygame, sys
 from pygame.locals import * 
 
+FPS = 8 #changed
 WINDOWWIDTH = 1400 # CHANGED FROM 640 to 
 WINDOWHEIGHT = 800 # CHANGED FROM 480 TO 1080
 CELLSIZE = 20 
@@ -21,8 +22,8 @@ CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE)
 #             R    G    B
 WHITE     = (255, 255, 255) 
 BLACK     = (  0,   0,   0) 
-RED       = (128,   0,   0) 
-LIGHTRED  = (255,   0,   0)
+RED       = (128,   0,   0) #added
+LIGHTRED  = (255,   0,   0) #changed
 GREEN     = (  0, 255,   0) 
 YELLOW    = ( 255, 255, 0) #CHANGED
 DARKYELLOW = (  155, 155, 0) #CHANGED
