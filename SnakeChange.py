@@ -98,12 +98,8 @@ def runGame():
             apple = getRandomLocationApple()
             
             
-        elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
-            wormCoords.append(1)
-            pear = getRandomLocationPear()
-
-            
-            #return
+        elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:          
+            return
            
             
         #Changes
