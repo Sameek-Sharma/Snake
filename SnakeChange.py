@@ -214,8 +214,8 @@ def showStartScreenHard():
             return
         pygame.display.update()
         FPSCLOCK.tick(FPS)
-        degrees1 += 10
-        degrees2 += 20 
+        degrees1 += 20
+        degrees2 += 40 
 
 
 def terminate():
