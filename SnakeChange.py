@@ -63,8 +63,7 @@ def runGame():
 
     
     apple = getRandomLocationApple()
-    
-    #pear = getRandomLocationPear()
+    pear = getRandomLocationPear()
     
 
     while True: 
@@ -95,12 +94,12 @@ def runGame():
         
         
         if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
-            apple = getRandomLocationApple()
-            #food = random.choice([apple, pear])
+    
+            food = random.choice([apple, pear])
             
-       # elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
-        #    food = random.choice([apple, pear]) 
-         #Changes
+        elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
+            food = random.choice([apple, pear]) 
+        #Changes
         else:
             del wormCoords[-1] 
 
@@ -120,7 +119,7 @@ def runGame():
         drawGrid()
         drawWorm(wormCoords)
         drawApple(apple)
-       # drawPear(pear)
+        drawPear(pear)
         drawScore(len(wormCoords) - 3)
         pygame.display.update()
         FPSCLOCK.tick(FPS)
@@ -184,8 +183,8 @@ def terminate():
 def getRandomLocationApple():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
 
-#def getRandomLocationPear():
- #   return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
+def getRandomLocationPear():
+    return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
 
 
 
