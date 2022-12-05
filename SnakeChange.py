@@ -59,21 +59,25 @@ def main():
     pygame.display.set_caption('Going Bananas')
     
         
-    a = input("Easy (E) or Hard (H)? ")
+    checkForDifficulty()
+    while True:
+        runGame() 
+        showGameOverScreen()
+   # a = input("Easy (E) or Hard (H)? ")
 
-    if type(a) == str:
-        if a == "E":
-            showStartScreenEasy()
-            while True:
-                runGame()
-                showGameOverScreen()
-        if a == "H":
-            global FPS
-            FPS = 20
-            showStartScreenHard()
-            while True:
-                runGame()
-                showGameOverScreen()
+ #   if type(a) == str:
+  #      if a == "E":
+   #         showStartScreenEasy()
+    #        while True:
+     #           runGame()
+      #          showGameOverScreen()
+       # if a == "H":
+        #    global FPS
+         #   FPS = 20
+          #  showStartScreenHard()
+           # while True:
+            #    runGame()
+             #   showGameOverScreen()
             
 def runGame():
 
@@ -180,7 +184,22 @@ def checkForKeyPress():
         terminate()
     return keyUpEvents[0].key
  
+def checkForDifficulty():
+    if len(pygame.event.get(QUIT)) > 0:
+        terminate()
 
+    keyUpEvents = pygame.event.get(KEYUP)
+    if len(keyUpEvents) == 0:
+        return None
+    if keyUpEvents[0].key == K_e:
+        return showStartScreenEasy()
+
+    if keyUpEvents[0].key == K_h:
+        return showStartScreenHard()
+    
+    if keyUpEvents[0].key == K_ESCAPE:
+        terminate()
+    
 def showStartScreenEasy():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
     titleSurf1 = titleFont.render('GOING', True, WHITE, DARKYELLOW)
