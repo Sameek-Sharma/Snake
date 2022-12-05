@@ -48,20 +48,18 @@ def main():
     
 a = input("Easy (E) or Hard (H)? ")
 
-while type(a) == str:
-       if a == "E":
-            showStartScreenEasy()
-            while True:
-                runGame()
-                showGameOverScreen()
-        
-        if a == "H":
-            showStartScreenHard()
-            while True:
-                runGame()
-                showGameOverScreen()
-                
-
+if type(a) == str:
+    if a == "E":
+        showStartScreenEasy()
+        while True:
+            runGame()
+            showGameOverScreen()
+    if a == "H":
+        showStartScreenHard()
+        while True:
+            runGame()
+            showGameOverScreen()
+            
 def runGame():
 
     startx = random.randint(5, CELLWIDTH - 6)
