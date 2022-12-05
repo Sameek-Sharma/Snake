@@ -59,26 +59,17 @@ def main():
     pygame.display.set_caption('Going Bananas')
     
         
-    checkForDifficulty()
-    if checkForDifficulty() == True:
-        showStartScreenEasy()
-        
+    showStartScreenEasy()
+    if showStartScreenEasy() == True:
         while True:
             runGame() 
             showGameOverScreen()
-        
-        
-    elif checkForDifficulty() == False:
-        showStartScreenHard()
+    elif showStartScreenEasy() == False:
         global FPS
         FPS = 20
-
         while True:
-            runGame()
+            runGame() 
             showGameOverScreen()
-        
-    elif checkForDifficulty() == None:
-        checkForDifficulty()
 
        # a = input("Easy (E) or Hard (H)? ")
 
@@ -199,24 +190,13 @@ def checkForKeyPress():
         return None
     if keyUpEvents[0].key == K_ESCAPE:
         terminate()
-    return keyUpEvents[0].key
- 
-def checkForDifficulty():
-    if len(pygame.event.get(QUIT)) > 0:
-        terminate()
-
-    keyUpEvents = pygame.event.get(KEYUP)
-    if len(keyUpEvents) == 0:
-        return None
     if keyUpEvents[0].key == K_e:
         return True
-
     if keyUpEvents[0].key == K_h:
         return False
-    
-    if keyUpEvents[0].key == K_ESCAPE:
-        terminate()
     return keyUpEvents[0].key
+ 
+
     
 def showStartScreenEasy():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
