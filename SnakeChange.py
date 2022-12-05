@@ -43,7 +43,7 @@ def main():
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT)) 
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
-    pygame.display.set_caption('Going Bananas') #Changed window name to Going Bananas
+    pygame.display.set_caption('Wormy')
 
     showStartScreen()
     while True:
@@ -99,7 +99,11 @@ def runGame():
             
             
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
-            return
+            wormCoords.append(1)
+            pear = getRandomLocationPear()
+
+            
+            #return
            
             
         #Changes
@@ -148,8 +152,8 @@ def checkForKeyPress():
 
 def showStartScreen():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('BANANAS!', True, WHITE, DARKBLUE) #changed title screen to GOING!
-    titleSurf2 = titleFont.render('GOING!', True, BLUE) #changed title screen to BANANAS!
+    titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKBLUE)
+    titleSurf2 = titleFont.render('Wormy!', True, BLUE)
 
     
     degrees1 = 0
