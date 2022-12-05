@@ -204,9 +204,10 @@ def showStartScreenEasy():
 
         drawPressKeyMsg()
 
-        if checkForKeyPress():
-            pygame.event.get() 
-            return
+        if checkForKeyPress() == True:
+            return True
+        elif checkForKeyPress() == False:
+            return False
         pygame.display.update()
         FPSCLOCK.tick(FPS)
         degrees1 += 3
