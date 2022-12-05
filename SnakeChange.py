@@ -24,7 +24,7 @@ WHITE     = (255, 255, 255)
 BLACK     = (  0,   0,   0) 
 RED       = (255,   0,   0) 
 GREEN     = (  0, 255,   0) 
-YELLOW    = ( 255, 255, 0) #CHANGED
+BLUE    = ( 255, 255, 0) #CHANGED
 DARKBLUE = (  155, 155, 0) #CHANGED
 DARKGRAY  = ( 40,  40,  40) 
 BGCOLOR = BLACK 
@@ -228,7 +228,7 @@ def drawWorm(wormCoords):
         wormSegmentRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
         pygame.draw.rect(DISPLAYSURF, DARKBLUE, wormSegmentRect) #CHANGED
         wormInnerSegmentRect = pygame.Rect(x + 4, y + 4, CELLSIZE - 8, CELLSIZE - 8)
-        pygame.draw.rect(DISPLAYSURF, YELLOW, wormInnerSegmentRect) #CHANGED
+        pygame.draw.rect(DISPLAYSURF, BLUE, wormInnerSegmentRect) #CHANGED
 
 
 def drawApple(coord_apple):
