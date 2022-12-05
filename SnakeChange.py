@@ -40,14 +40,14 @@ RIGHT = 'right'
 
 HEAD = 0 
 
-def choose_diff_screen():
-    gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
-    gameSurf = gameOverFont.render('Choose Difficulty', True, WHITE)
-    overSurf = gameOverFont.render('E > Easy  H > Hard', True, WHITE)
-    gameRect = gameSurf.get_rect()
-    overRect = overSurf.get_rect()
-    gameRect.midtop = (WINDOWWIDTH / 2, 10)
-    overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25)
+#def choose_diff_screen():
+    #gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
+    #gameSurf = gameOverFont.render('Choose Difficulty', True, WHITE)
+    #overSurf = gameOverFont.render('E > Easy  H > Hard', True, WHITE)
+    #gameRect = gameSurf.get_rect()
+    #overRect = overSurf.get_rect()
+    #gameRect.midtop = (WINDOWWIDTH / 2, 10)
+    #overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25)
 
 def main():
     global FPSCLOCK, DISPLAYSURF, BASICFONT
@@ -60,6 +60,15 @@ def main():
     
         
     checkForDifficulty()
+    if checkForDifficulty() == True:
+        showStartScreenEasy()
+        
+    elif checkForDifficulty() == False:
+        showStartScreenHard()
+        
+    elif checkForDifficulty() == None:
+        checkForDifficulty()
+
     while True:
         runGame() 
         showGameOverScreen()
@@ -192,10 +201,10 @@ def checkForDifficulty():
     if len(keyUpEvents) == 0:
         return None
     if keyUpEvents[0].key == K_e:
-        return showStartScreenEasy()
+        return True
 
     if keyUpEvents[0].key == K_h:
-        return showStartScreenHard()
+        return False
     
     if keyUpEvents[0].key == K_ESCAPE:
         terminate()
