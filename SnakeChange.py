@@ -11,8 +11,8 @@ import random, pygame, sys
 from pygame.locals import * 
 
 FPS = 8 # CHANGED FROM 15 TO 10
-WINDOWWIDTH = 1200 # CHANGED FROM 640 to 
-WINDOWHEIGHT = 900 # CHANGED FROM 480 TO 1080
+WINDOWWIDTH = 1440 # CHANGED FROM 640 to 
+WINDOWHEIGHT = 1080 # CHANGED FROM 480 TO 1080
 CELLSIZE = 20 
 assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size." 
 assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size." 
@@ -62,7 +62,10 @@ def runGame():
     direction = RIGHT
 
     
-    food = getRandomChoice() #CHANGED
+    apple = getRandomLocationApple()
+    
+    pear = getRandomLocationPear()
+    
 
     while True: 
         for event in pygame.event.get(): 
@@ -88,16 +91,14 @@ def runGame():
             if wormBody['x'] == wormCoords[HEAD]['x'] and wormBody['y'] == wormCoords[HEAD]['y']:
                 return 
 
-      
-        if wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
-            wormCoords.extend(1)
-            food = getRandomChoice()  
-        else:
-            del wormCoords[-1] 
+     
         
         
         if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
-            food = getRandomChoice()
+            food = random.choice([apple, pear])
+            
+        elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
+            food = random.choice([apple, pear]) 
          #Changes
         else:
             del wormCoords[-1] 
@@ -115,7 +116,7 @@ def runGame():
         if food == apple:
             drawApple(apple)
         
-        if food ==  pear:
+        if food == pear:
             drawPear(pear)
             
         wormCoords.insert(0, newHead)
@@ -188,13 +189,6 @@ def getRandomLocationApple():
 def getRandomLocationPear():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
 
-
-#CHANGED 
-def getRandomChoice():
-    apple = getRandomLocationApple()
-    pear = getRandomLocationPear()
-    return random.choice([apple, pear])
-    
 
 
     
