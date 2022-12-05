@@ -57,11 +57,11 @@ def main():
     
         
     showStartScreenEasy()
-    if showStartScreenEasy() == True:
+    if showStartScreenEasy() == 'e':
         while True:
             runGame() 
             showGameOverScreen()
-    elif showStartScreenEasy() == False:
+    elif showStartScreenEasy() == 'h':
         global FPS
         FPS = 20
         while True:
@@ -167,19 +167,30 @@ def drawPressKeyMsg():
     DISPLAYSURF.blit(pressKeySurf, pressKeyRect)
 
 
-def checkForKeyPress():
+def checkForKey_e_k():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             terminate()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_h:
-                return True
+                return ('h')
 
             elif event.key == pygame.K_e:
-                return False
+                return ('e')
 
             elif event.key == pygame.K_ESCAPE:
                 terminate()
+      
+def checkForKeyPress():
+    if len(pygame.event.get(QUIT)) > 0:
+        terminate()
+
+    keyUpEvents = pygame.event.get(KEYUP)
+    if len(keyUpEvents) == 0:
+        return None
+    if keyUpEvents[0].key == K_ESCAPE:
+        terminate()
+    return keyUpEvents[0].key
  
 
 def showStartScreenEasy():
@@ -204,10 +215,8 @@ def showStartScreenEasy():
 
         drawPressKeyMsg()
 
-        if checkForKeyPress() == True:
-            return True
-        elif checkForKeyPress() == False:
-            return False
+        checkForKey_e_k()
+            
         pygame.display.update()
         FPSCLOCK.tick(FPS)
         degrees1 += 3
