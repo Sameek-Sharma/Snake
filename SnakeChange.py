@@ -98,14 +98,14 @@ def runGame():
             
             
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
-                if direction == UP:
-                newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 2}
-                elif direction == DOWN:
-                    newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] + 2}
-                elif direction == LEFT:
-                    newHead = {'x': wormCoords[HEAD]['x'] - 2, 'y': wormCoords[HEAD]['y']}
-                elif direction == RIGHT:
-                    newHead = {'x': wormCoords[HEAD]['x'] + 2, 'y': wormCoords[HEAD]['y']}
+            if direction == UP:
+            newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 2}
+            elif direction == DOWN:
+                newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] + 2}
+            elif direction == LEFT:
+                newHead = {'x': wormCoords[HEAD]['x'] - 2, 'y': wormCoords[HEAD]['y']}
+            elif direction == RIGHT:
+                newHead = {'x': wormCoords[HEAD]['x'] + 2, 'y': wormCoords[HEAD]['y']}
             pear = getRandomLocationPear() 
         #Changes
         else:
