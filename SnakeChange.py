@@ -262,13 +262,13 @@ def getRandomLocationPear():
     
 
 def showGameOverScreen():
-    gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
+    gameOverFont = pygame.font.Font('freesansbold.ttf', 90)
     gameSurf = gameOverFont.render('YOU LOST!', True, WHITE)
     overSurf = gameOverFont.render('Press Space', True, WHITE)
     gameRect = gameSurf.get_rect()
     overRect = overSurf.get_rect()
     gameRect.midtop = (WINDOWWIDTH / 2, 10)
-    overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25)
+    overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 15 + 25)
 
     DISPLAYSURF.blit(gameSurf, gameRect)
     DISPLAYSURF.blit(overSurf, overRect)
