@@ -62,7 +62,7 @@ def runGame():
     direction = RIGHT
 
     
-    apple = getRandomLocation()   
+    food = getRandomChoice() #CHANGED
 
     while True: 
         for event in pygame.event.get(): 
@@ -88,13 +88,20 @@ def runGame():
             if wormBody['x'] == wormCoords[HEAD]['x'] and wormBody['y'] == wormCoords[HEAD]['y']:
                 return 
 
-        
-        
-        if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']: 
-            apple = getRandomLocation() 
+      
+        if wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
+            wormCoords.extend(1)
+            food = getRandomChoice()  
         else:
             del wormCoords[-1] 
-            
+        
+        
+        if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
+            food = getRandomChoice()
+         #Changes
+        else:
+            del wormCoords[-1] 
+
       
         if direction == UP:
             newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 1}
@@ -105,11 +112,16 @@ def runGame():
         elif direction == RIGHT:
             newHead = {'x': wormCoords[HEAD]['x'] + 1, 'y': wormCoords[HEAD]['y']}
             
+        if food == apple:
+            drawApple(apple)
+        
+        if food ==  pear:
+            drawPear(pear)
+            
         wormCoords.insert(0, newHead)
         DISPLAYSURF.fill(BGCOLOR)
         drawGrid()
         drawWorm(wormCoords)
-        drawApple(apple)
         drawScore(len(wormCoords) - 3)
         pygame.display.update()
         FPSCLOCK.tick(FPS)
@@ -170,10 +182,22 @@ def terminate():
 
     
 
-def getRandomLocation():
+def getRandomLocationApple():
+    return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
+
+def getRandomLocationPear():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
 
 
+#CHANGED 
+def getRandomChoice():
+    apple = getRandomLocationApple()
+    pear = getRandomLocationPear()
+    return random.choice([apple, pear])
+    
+
+
+    
     
 
 def showGameOverScreen():
@@ -221,6 +245,12 @@ def drawApple(coord_apple):
     appleRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
     pygame.draw.rect(DISPLAYSURF, RED, appleRect)
     
+#CHANGED   
+def drawPear(coord_pear):
+    x = coord_pear['x'] * CELLSIZE
+    y = coord_pear['y'] * CELLSIZE
+    pearRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
+    pygame.draw.rect(DISPLAYSURF, GREEN, pearRect) 
     
 
 
