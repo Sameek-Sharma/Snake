@@ -37,15 +37,6 @@ RIGHT = 'right'
 
 HEAD = 0 
 
-def choose_diff_screen():
-    gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
-    gameSurf = gameOverFont.render('Choose Difficulty', True, WHITE)
-    overSurf = gameOverFont.render('E > Easy  H > Hard', True, WHITE)
-    gameRect = gameSurf.get_rect()
-    overRect = overSurf.get_rect()
-    gameRect.midtop = (WINDOWWIDTH / 2, 10)
-    overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25)
-
 def main():
     global FPSCLOCK, DISPLAYSURF, BASICFONT
 
@@ -167,19 +158,6 @@ def drawPressKeyMsg():
     DISPLAYSURF.blit(pressKeySurf, pressKeyRect)
 
 
-def checkForKey_e_k():
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            terminate()
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_h:
-                return ('h')
-
-            elif event.key == pygame.K_e:
-                return ('e')
-
-            elif event.key == pygame.K_ESCAPE:
-                terminate()
       
 def checkForKeyPress():
     if len(pygame.event.get(QUIT)) > 0:
@@ -215,7 +193,9 @@ def showStartScreenEasy():
 
         drawPressKeyMsg()
 
-        checkForKey_e_k()
+        if checkForKeyPress():
+            pygame.event.get() 
+            return
             
         pygame.display.update()
         FPSCLOCK.tick(FPS)
@@ -251,7 +231,14 @@ def showStartScreenHard():
         FPSCLOCK.tick(FPS)
         degrees1 += 20
         degrees2 += 40 
+        
 
+o = random.choice(['i','j'])
+if o = 'i':
+    showStartScreenHard()
+if o = 'j':
+    showStartScreenEasy()
+    
 
 def terminate():
     pygame.quit()
