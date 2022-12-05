@@ -94,32 +94,25 @@ def runGame():
         
         
         if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
+            del wormCoords[-1]
             apple = getRandomLocationApple()
             
             
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
-            if direction == UP:
-                newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 2}
-            elif direction == DOWN:
-                newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] + 2}
-            elif direction == LEFT:
-                newHead = {'x': wormCoords[HEAD]['x'] - 2, 'y': wormCoords[HEAD]['y']}
-            elif direction == RIGHT:
-                newHead = {'x': wormCoords[HEAD]['x'] + 2, 'y': wormCoords[HEAD]['y']}
             pear = getRandomLocationPear() 
         #Changes
         else:
-            del wormCoords[-1] 
+            del wormCoords[-2] 
 
       
         if direction == UP:
-            newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 1}
+            newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 2}
         elif direction == DOWN:
-            newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] + 1}
+            newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] + 2}
         elif direction == LEFT:
-            newHead = {'x': wormCoords[HEAD]['x'] - 1, 'y': wormCoords[HEAD]['y']}
+            newHead = {'x': wormCoords[HEAD]['x'] - 2, 'y': wormCoords[HEAD]['y']}
         elif direction == RIGHT:
-            newHead = {'x': wormCoords[HEAD]['x'] + 1, 'y': wormCoords[HEAD]['y']}
+            newHead = {'x': wormCoords[HEAD]['x'] + 2, 'y': wormCoords[HEAD]['y']}
             
             
         wormCoords.insert(0, newHead)
