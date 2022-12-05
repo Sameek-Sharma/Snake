@@ -233,11 +233,7 @@ def showStartScreenHard():
         degrees2 += 40 
         
 
-o = random.choice(['i','j'])
-if o == 'i':
-    showStartScreenHard()
-if o == 'j':
-    showStartScreenEasy()
+
     
 
 def terminate():
