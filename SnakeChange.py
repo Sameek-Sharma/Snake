@@ -99,7 +99,7 @@ def runGame():
             
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
             if direction == UP:
-            newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 2}
+                newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 2}
             elif direction == DOWN:
                 newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] + 2}
             elif direction == LEFT:
