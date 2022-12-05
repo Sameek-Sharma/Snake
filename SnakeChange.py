@@ -234,9 +234,9 @@ def showStartScreenHard():
         
 
 o = random.choice(['i','j'])
-if o = 'i':
+if o == 'i':
     showStartScreenHard()
-if o = 'j':
+if o == 'j':
     showStartScreenEasy()
     
 
