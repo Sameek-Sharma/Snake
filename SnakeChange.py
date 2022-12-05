@@ -95,10 +95,10 @@ def runGame():
         
         if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
             apple = getRandomLocationApple()
-            food = random.choice([apple, pear])
+            
             
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
-            
+            wormCoords.extend(1)
             pear = getRandomLocationPear() 
         #Changes
         else:
