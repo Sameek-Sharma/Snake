@@ -276,7 +276,7 @@ def drawApple(coord_apple):
     x = coord_apple['x'] * CELLSIZE
     y = coord_apple['y'] * CELLSIZE
     appleRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
-    pygame.draw.rect(DISPLAYSURF, RED, appleRect)
+    pygame.draw.rect(DISPLAYSURF, LIGHTRED, appleRect)
     
 #CHANGED   
 def drawPear(coord_pear):
