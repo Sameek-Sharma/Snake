@@ -63,16 +63,24 @@ def main():
     if checkForDifficulty() == True:
         showStartScreenEasy()
         
+        while True:
+            runGame() 
+            showGameOverScreen()
+        
+        
     elif checkForDifficulty() == False:
         showStartScreenHard()
+        global FPS
+        FPS = 20
+          
+        while True:
+            runGame()
+            showGameOverScreen()
         
     elif checkForDifficulty() == None:
         checkForDifficulty()
 
-    while True:
-        runGame() 
-        showGameOverScreen()
-   # a = input("Easy (E) or Hard (H)? ")
+       # a = input("Easy (E) or Hard (H)? ")
 
  #   if type(a) == str:
   #      if a == "E":
@@ -208,6 +216,7 @@ def checkForDifficulty():
     
     if keyUpEvents[0].key == K_ESCAPE:
         terminate()
+    return keyUpEvents[0].key
     
 def showStartScreenEasy():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
