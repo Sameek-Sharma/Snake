@@ -198,7 +198,7 @@ def showGameOverScreen():
     gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
     gameSurf = gameOverFont.render('HA HA', True, WHITE)
     overSurf = gameOverFont.render('YOU SUCK', True, WHITE)
-    overSurf = gameOverFont.render('Press Space to play again', True, WHITE)
+    underSurf = gameOverFont.render('Press Space', True, WHITE)
     gameRect = gameSurf.get_rect()
     overRect = overSurf.get_rect()
     gameRect.midtop = (WINDOWWIDTH / 2, 10)
