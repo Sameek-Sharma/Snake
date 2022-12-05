@@ -24,8 +24,8 @@ WHITE     = (255, 255, 255)
 BLACK     = (  0,   0,   0) 
 RED       = (255,   0,   0) 
 GREEN     = (  0, 255,   0) 
-BLUE    = ( 255, 255, 0) #CHANGED
-DARKBLUE = (  155, 155, 0) #CHANGED
+YELLOW    = ( 255, 255, 0) #CHANGED
+DARKYELLOW = (  155, 155, 0) #CHANGED
 DARKGRAY  = ( 40,  40,  40) 
 BGCOLOR = BLACK 
 
@@ -148,8 +148,8 @@ def checkForKeyPress():
 
 def showStartScreen():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKBLUE)
-    titleSurf2 = titleFont.render('Wormy!', True, BLUE)
+    titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKYELLOW)
+    titleSurf2 = titleFont.render('Wormy!', True, YELLOW)
 
     
     degrees1 = 0
@@ -228,9 +228,9 @@ def drawWorm(wormCoords):
         x = coord['x'] * CELLSIZE
         y = coord['y'] * CELLSIZE
         wormSegmentRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
-        pygame.draw.rect(DISPLAYSURF, DARKBLUE, wormSegmentRect) #CHANGED
+        pygame.draw.rect(DISPLAYSURF, DARKYELLOW, wormSegmentRect) #CHANGED
         wormInnerSegmentRect = pygame.Rect(x + 4, y + 4, CELLSIZE - 8, CELLSIZE - 8)
-        pygame.draw.rect(DISPLAYSURF, BLUE, wormInnerSegmentRect) #CHANGED
+        pygame.draw.rect(DISPLAYSURF, YELLOW, wormInnerSegmentRect) #CHANGED
 
 
 def drawApple(coord_apple):
