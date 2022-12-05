@@ -118,7 +118,7 @@ def runGame():
                 newTail = {'x': wormCoords[-1]['x'] - 1, 'y': wormCoords[-1]['y']}
             elif direction == RIGHT:
                 newTail = {'x': wormCoords[-1]['x'] + 1, 'y': wormCoords[-1]['y']}
-            wormCoords.insert(-1, newTail)
+            wormCoords.append(newTail)
             
             pear = getRandomLocationPear()   
             #return
