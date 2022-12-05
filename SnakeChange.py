@@ -43,7 +43,7 @@ def main():
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT)) 
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
-    pygame.display.set_caption('Wormy')
+    pygame.display.set_caption('Bananas')
 
     showStartScreen()
     while True:
@@ -148,8 +148,8 @@ def checkForKeyPress():
 
 def showStartScreen():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKBLUE)
-    titleSurf2 = titleFont.render('Wormy!', True, BLUE)
+    titleSurf1 = titleFont.render('BANANAS!', True, WHITE, DARKBLUE)
+    titleSurf2 = titleFont.render('GOING!', True, BLUE)
 
     
     degrees1 = 0
