@@ -62,7 +62,7 @@ def runGame():
     direction = RIGHT
 
     
-    food = getRandomChoice() #CHANGED
+    apple = getRandomLocation()   
 
     while True: 
         for event in pygame.event.get(): 
@@ -89,15 +89,12 @@ def runGame():
                 return 
 
         
-        if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
-            apple = getRandomChoice()
-         #Changes
-        elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:
-            wormCoords.extend(1)
-            pear = getRandomChoice()
+        
+        if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']: 
+            apple = getRandomLocation() 
         else:
             del wormCoords[-1] 
-
+            
       
         if direction == UP:
             newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 1}
@@ -113,7 +110,6 @@ def runGame():
         drawGrid()
         drawWorm(wormCoords)
         drawApple(apple)
-        drawPear(pear)
         drawScore(len(wormCoords) - 3)
         pygame.display.update()
         FPSCLOCK.tick(FPS)
@@ -174,22 +170,10 @@ def terminate():
 
     
 
-def getRandomLocationApple():
-    return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
-
-def getRandomLocationPear():
+def getRandomLocation():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
 
 
-#CHANGED 
-def getRandomChoice():
-    apple = getRandomLocationApple()
-    pear = getRandomLocationPear()
-    return random.choice([apple, pear])
-    
-
-
-    
     
 
 def showGameOverScreen():
@@ -237,12 +221,6 @@ def drawApple(coord_apple):
     appleRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
     pygame.draw.rect(DISPLAYSURF, RED, appleRect)
     
-#CHANGED   
-def drawPear(coord_pear):
-    x = coord_pear['x'] * CELLSIZE
-    y = coord_pear['y'] * CELLSIZE
-    pearRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
-    pygame.draw.rect(DISPLAYSURF, GREEN, pearRect) 
     
 
 
