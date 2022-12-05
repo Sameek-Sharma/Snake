@@ -50,12 +50,12 @@ def main():
 
     if type(a) == str:
         if a == "E":
-            FPS = 8
             showStartScreenEasy()
             while True:
                 runGame()
                 showGameOverScreen()
         if a == "H":
+            global FPS
             FPS = 20
             showStartScreenHard()
             while True:
