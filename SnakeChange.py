@@ -46,6 +46,15 @@ def main():
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
     pygame.display.set_caption('Going Bananas')
     
+def choose_diff_screen():
+    gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
+    gameSurf = gameOverFont.render('Choose Difficulty', True, WHITE)
+    overSurf = gameOverFont.render('E > Easy  H > Hard', True, WHITE)
+    gameRect = gameSurf.get_rect()
+    overRect = overSurf.get_rect()
+    gameRect.midtop = (WINDOWWIDTH / 2, 10)
+    overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25)
+        
     a = input("Easy (E) or Hard (H)? ")
 
     if type(a) == str:
