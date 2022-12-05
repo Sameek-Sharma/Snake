@@ -45,13 +45,24 @@ def main():
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT)) 
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
     pygame.display.set_caption('Going Bananas')
+    
+a = input("Easy (E) or Hard (H)? ")
 
-    showStartScreen()
-    while True:
-        runGame()
-        showGameOverScreen()
-
-
+while type(a) == str:
+       if a == "E":
+            showStartScreenEasy()
+            while True:
+                runGame()
+                showGameOverScreen()
+        
+        break
+        
+        if a == "H":
+            showStartScreenHard()
+            while True:
+                runGame()
+                showGameOverScreen()
+                
 
 def runGame():
 
