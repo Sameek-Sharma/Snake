@@ -107,7 +107,7 @@ def runGame():
             
             
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:          
-            wormCoors.update('x''y') 
+            wormCoords.update('x''y') 
             #return
            
             
