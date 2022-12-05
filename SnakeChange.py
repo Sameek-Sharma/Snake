@@ -46,19 +46,19 @@ def main():
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
     pygame.display.set_caption('Going Bananas')
     
-a = input("Easy (E) or Hard (H)? ")
+    a = input("Easy (E) or Hard (H)? ")
 
-if type(a) == str:
-    if a == "E":
-        showStartScreenEasy()
-        while True:
-            runGame()
-            showGameOverScreen()
-    if a == "H":
-        showStartScreenHard()
-        while True:
-            runGame()
-            showGameOverScreen()
+    if type(a) == str:
+        if a == "E":
+            showStartScreenEasy()
+            while True:
+                runGame()
+                showGameOverScreen()
+        if a == "H":
+            showStartScreenHard()
+            while True:
+                runGame()
+                showGameOverScreen()
             
 def runGame():
 
