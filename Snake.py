@@ -44,10 +44,11 @@ def main():
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
     pygame.display.set_caption('Wormy')
 
-    showStartScreen()
+    
+    showStartScreen() # calls function showStartScreen() (defined below) to run once before starting the game 
     while True:
-        runGame()
-        showGameOverScreen()
+        runGame() # main game function (defined below)
+        showGameOverScreen() #once rungame() returns (by player colliding into wall or self) the showGameOverScreen() (defined below) will run
 #above function ->  Opens the game and shows the window over the current on (sets priority), sets a clock animation for start screen, display surface (new window), fonts (to display wording and numbers), and sets window caption (name of the open window running on the computer)
 
 
