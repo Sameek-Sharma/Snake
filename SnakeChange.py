@@ -267,8 +267,8 @@ def showGameOverScreen():
     overSurf = gameOverFont.render('LOST!', True, WHITE)
     gameRect = gameSurf.get_rect()
     overRect = overSurf.get_rect()
-    gameRect.center = (WINDOWWIDTH / 2, 10)
-    overRect.center = (WINDOWWIDTH / 2, 20)
+    gameRect.center = (WINDOWWIDTH / 2, 250)
+    overRect.center = (WINDOWWIDTH / 2, 400)
 
     DISPLAYSURF.blit(gameSurf, gameRect)
     DISPLAYSURF.blit(overSurf, overRect)
