@@ -147,7 +147,37 @@ def checkForKeyPress():
     return keyUpEvents[0].key
  
 
-def showStartScreen():
+def showStartScreenEasy():
+    titleFont = pygame.font.Font('freesansbold.ttf', 100)
+    titleSurf1 = titleFont.render('GOING', True, WHITE, DARKYELLOW)
+    titleSurf2 = titleFont.render('BANANAS!', True, YELLOW)
+
+    
+    degrees1 = 0
+    degrees2 = 0
+    while True:
+        DISPLAYSURF.fill(BGCOLOR)
+        rotatedSurf1 = pygame.transform.rotate(titleSurf1, degrees1)
+        rotatedRect1 = rotatedSurf1.get_rect()
+        rotatedRect1.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 2)
+        DISPLAYSURF.blit(rotatedSurf1, rotatedRect1)
+
+        rotatedSurf2 = pygame.transform.rotate(titleSurf2, degrees2)
+        rotatedRect2 = rotatedSurf2.get_rect()
+        rotatedRect2.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 2)
+        DISPLAYSURF.blit(rotatedSurf2, rotatedRect2)
+
+        drawPressKeyMsg()
+
+        if checkForKeyPress():
+            pygame.event.get() 
+            return
+        pygame.display.update()
+        FPSCLOCK.tick(FPS)
+        degrees1 += 3
+        degrees2 += 7 
+        
+def showStartScreenHard():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
     titleSurf1 = titleFont.render('GOING', True, WHITE, DARKYELLOW)
     titleSurf2 = titleFont.render('BANANAS!', True, YELLOW)
