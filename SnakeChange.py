@@ -113,11 +113,9 @@ def runGame():
         elif direction == RIGHT:
             newHead = {'x': wormCoords[HEAD]['x'] + 1, 'y': wormCoords[HEAD]['y']}
             
-        if food == apple:
-            drawApple(apple)
+        drawApple(apple)
         
-        if food == pear:
-            drawPear(pear)
+        drawPear(pear)
             
         wormCoords.insert(0, newHead)
         DISPLAYSURF.fill(BGCOLOR)
