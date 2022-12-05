@@ -72,7 +72,7 @@ def main():
         showStartScreenHard()
         global FPS
         FPS = 20
-          
+
         while True:
             runGame()
             showGameOverScreen()
