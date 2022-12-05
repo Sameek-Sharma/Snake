@@ -213,7 +213,6 @@ def showStartScreenEasy():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
     titleSurf1 = titleFont.render('GOING', True, WHITE, DARKYELLOW)
     titleSurf2 = titleFont.render('BANANAS!', True, YELLOW)
-
     
     degrees1 = 0
     degrees2 = 0
@@ -239,12 +238,14 @@ def showStartScreenEasy():
         degrees1 += 3
         degrees2 += 7 
         
+        
+        
+        
 def showStartScreenHard():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
     titleSurf1 = titleFont.render('GOING', True, WHITE, LIGHTRED)
     titleSurf2 = titleFont.render('BANANAS!', True, RED)
 
-    
     degrees1 = 0
     degrees2 = 0
     while True:
@@ -269,6 +270,7 @@ def showStartScreenHard():
         degrees1 += 20
         degrees2 += 40 
 
+        
 
 def terminate():
     pygame.quit()
