@@ -23,6 +23,7 @@ CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE)
 WHITE     = (255, 255, 255) 
 BLACK     = (  0,   0,   0) 
 RED       = (255,   0,   0) 
+LIGHTRED  = (255,   0,   0)
 GREEN     = (  0, 255,   0) 
 YELLOW    = ( 255, 255, 0) #CHANGED
 DARKYELLOW = (  155, 155, 0) #CHANGED
@@ -179,8 +180,8 @@ def showStartScreenEasy():
         
 def showStartScreenHard():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('GOING', True, WHITE, DARKYELLOW)
-    titleSurf2 = titleFont.render('BANANAS!', True, YELLOW)
+    titleSurf1 = titleFont.render('GOING', True, WHITE, LIGHTRED)
+    titleSurf2 = titleFont.render('BANANAS!', True, RED)
 
     
     degrees1 = 0
