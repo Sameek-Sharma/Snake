@@ -459,7 +459,7 @@ def runGame():
             
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:          
                 
-            p = random.choice([a,b])
+            p = random.choice(['a','b'])
             
             if p == 'a':
                 if direction == UP:
