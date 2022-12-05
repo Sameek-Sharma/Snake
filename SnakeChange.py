@@ -55,8 +55,6 @@ while type(a) == str:
                 runGame()
                 showGameOverScreen()
         
-        break
-        
         if a == "H":
             showStartScreenHard()
             while True:
