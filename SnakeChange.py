@@ -50,20 +50,20 @@ def main():
     o = random.choice(['i','j'])
     if o == 'i':
         showStartScreenHard()
+        global FPS
+        FPS = 20
+        while True:
+            runGame() 
+            showGameOverScreen()
+            
     if o == 'j':
         showStartScreenEasy()
-        
+        while True:
+            runGame() 
+            showGameOverScreen()
     
-  #  if showStartScreenEasy():
-   #     while True:
-    #        runGame() 
-     #       showGameOverScreen()
-   # elif showStartScreenHard():
-    #    global FPS
-     #   FPS = 20
-      #  while True:
-       #     runGame() 
-        #    showGameOverScreen()
+
+        
             
 def runGame():
 
