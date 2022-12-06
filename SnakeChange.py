@@ -10,6 +10,7 @@
 import random, pygame, sys
 from pygame.locals import * 
 
+
 FPS = 8 #changed
 WINDOWWIDTH = 1400 # CHANGED FROM 640 to 
 WINDOWHEIGHT = 800 # CHANGED FROM 480 TO 1080
@@ -46,18 +47,23 @@ def main():
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
     pygame.display.set_caption('Going Bananas')
     
+    o = random.choice(['i','j']):
+    if o == 'i':
+        showStartScreenHard()
+    if 0 == 'j':
+        showStartScreenEasy()
         
-    showStartScreenEasy()
-    if showStartScreenEasy() == 'e':
-        while True:
-            runGame() 
-            showGameOverScreen()
-    elif showStartScreenEasy() == 'h':
-        global FPS
-        FPS = 20
-        while True:
-            runGame() 
-            showGameOverScreen()
+    
+  #  if showStartScreenEasy():
+   #     while True:
+    #        runGame() 
+     #       showGameOverScreen()
+   # elif showStartScreenHard():
+    #    global FPS
+     #   FPS = 20
+      #  while True:
+       #     runGame() 
+        #    showGameOverScreen()
             
 def runGame():
 
