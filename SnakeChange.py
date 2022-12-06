@@ -179,8 +179,8 @@ def checkForKeyPress():
 
 def showStartScreenEasy():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKYELLOW)
-    titleSurf2 = titleFont.render('Wormy!', True, YELLOW)
+    titleSurf1 = titleFont.render('GOING', True, WHITE, DARKYELLOW)
+    titleSurf2 = titleFont.render('BANANAS!', True, YELLOW)
    
     degrees1 = 0
     degrees2 = 0
