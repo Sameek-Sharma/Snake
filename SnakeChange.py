@@ -110,7 +110,7 @@ def runGame():
             
             apple = getRandomLocationApple()
             
-            
+        #Changed -> added new pear function that either gives a pear that doubles your lenght or ends the game     
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:          
                 
             p = random.choice(['a','b','c'])
@@ -127,7 +127,7 @@ def runGame():
                 wormCoords.append(newTail)
 
                 pear = getRandomLocationPear()   
-                #return
+                
             if p == 'b':
                 if direction == UP:
                     newTail = {'x': wormCoords[-1]['x'], 'y': wormCoords[-1]['y'] - 1}
@@ -144,7 +144,7 @@ def runGame():
             if p == 'c':
                 return
             
-        #Changes
+        
         else:
             del wormCoords[-1] 
 
