@@ -50,7 +50,7 @@ def main():
     o = random.choice(['i','j'])
     if o == 'i':
         showStartScreenHard()
-    if 0 == 'j':
+    if o == 'j':
         showStartScreenEasy()
         
     
@@ -179,10 +179,9 @@ def checkForKeyPress():
 
 def showStartScreenEasy():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('GOING', True, WHITE, DARKYELLOW)
-    titleSurf2 = titleFont.render('BANANAS!', True, YELLOW)
-
-    
+    titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKGREEN)
+    titleSurf2 = titleFont.render('Wormy!', True, GREEN)
+   
     degrees1 = 0
     degrees2 = 0
     while True:
@@ -197,16 +196,18 @@ def showStartScreenEasy():
         rotatedRect2.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 2)
         DISPLAYSURF.blit(rotatedSurf2, rotatedRect2)
 
+        
         drawPressKeyMsg()
 
         if checkForKeyPress():
             pygame.event.get() 
             return
-            
         pygame.display.update()
         FPSCLOCK.tick(FPS)
-        degrees1 += 3
+        degrees1 += 3 
         degrees2 += 7 
+        
+        
         
 def showStartScreenHard():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
