@@ -113,7 +113,7 @@ def runGame():
             
         elif wormCoords[HEAD]['x'] == pear['x'] and wormCoords[HEAD]['y'] == pear['y']:          
                 
-            p = random.choice(['a','b'])
+            p = random.choice(['a','b','c'])
             
             if p == 'a':
                 if direction == UP:
@@ -128,8 +128,20 @@ def runGame():
 
                 pear = getRandomLocationPear()   
                 #return
-                
             if p == 'b':
+                if direction == UP:
+                    newTail = {'x': wormCoords[-1]['x'], 'y': wormCoords[-1]['y'] - 1}
+                elif direction == DOWN:
+                    newTail = {'x': wormCoords[-1]['x'], 'y': wormCoords[-1]['y'] + 1}
+                elif direction == LEFT:
+                    newTail = {'x': wormCoords[-1]['x'] - 1, 'y': wormCoords[-1]['y']}
+                elif direction == RIGHT:
+                    newTail = {'x': wormCoords[-1]['x'] + 1, 'y': wormCoords[-1]['y']}
+                wormCoords.append(newTail)
+
+                pear = getRandomLocationPear()
+                
+            if p == 'c':
                 return
             
         #Changes
