@@ -47,7 +47,7 @@ def main():
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
     pygame.display.set_caption('Going Bananas')
     
-    o = random.choice(['i','j']):
+    o = random.choice(['i','j'])
     if o == 'i':
         showStartScreenHard()
     if 0 == 'j':
