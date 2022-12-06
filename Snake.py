@@ -150,7 +150,7 @@ def showStartScreen():
     degrees1 = 0
     degrees2 = 0
     while True:
-        DISPLAYSURF.fill(BGCOLOR)
+        DISPLAYSURF.fill(BGCOLOR) #fills the display surface with a color
         rotatedSurf1 = pygame.transform.rotate(titleSurf1, degrees1)
         rotatedRect1 = rotatedSurf1.get_rect()
         rotatedRect1.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 2)
@@ -208,7 +208,7 @@ def showGameOverScreen():
 #above function -> sets the <game over> visual with colour, size and position, clears key press que, and waits for a new key input (to restart game)
         
 def drawScore(score):
-    scoreSurf = BASICFONT.render('Score: %s' % (score), True, WHITE)
+    scoreSurf = BASICFONT.render('Score: %s' % (score), True, WHITE) # renders text, TRUE means the characters will have smooth edges, color of text (WHITE)
     scoreRect = scoreSurf.get_rect()
     scoreRect.topleft = (WINDOWWIDTH - 120, 10)
     DISPLAYSURF.blit(scoreSurf, scoreRect)
