@@ -8,37 +8,37 @@
 # Melanie Bouzanne- MB
 
 import random, pygame, sys
-from pygame.locals import * #imports pygame and all of the neccessary functions that are neccessary to run the game
+from pygame.locals import * #imports pygame and all of the neccessary functions that are neccessary to run the game - a
 
-FPS = 15 #sets game speed
+FPS = 15 #sets game speed - 
 WINDOWWIDTH = 640 #game window width (x-direction)
 WINDOWHEIGHT = 480 #game window height (y-direction)
 CELLSIZE = 20 #size value for individual square
-assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size." #ensures correct aspect ratio for window
-assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size." #ensures correct aspect ratio for window
+assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size." #ensures correct aspect ratio for window width
+assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size." #ensures correct aspect ratio for window height
 CELLWIDTH = int(WINDOWWIDTH / CELLSIZE) #finds int value of squares in horizontal
 CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE) #finds int value of squares in vertical
 
 #             R    G    B
-WHITE     = (255, 255, 255) #RGB value of white
-BLACK     = (  0,   0,   0) #RGB value of black
-RED       = (255,   0,   0) #RGB value of red
-GREEN     = (  0, 255,   0) #RBG value of green (lighter shade)
-DARKGREEN = (  0, 155,   0) #RGB value of green (darker shade
-DARKGRAY  = ( 40,  40,  40) #RGB value of grey (lighter black)
-BGCOLOR = BLACK #game background is black
+WHITE     = (255, 255, 255) #RGB value of white -b
+BLACK     = (  0,   0,   0) #RGB value of black - b
+RED       = (255,   0,   0) #RGB value of red - b
+GREEN     = (  0, 255,   0) #RBG value of green (lighter shade) - b
+DARKGREEN = (  0, 155,   0) #RGB value of green (darker shade - b
+DARKGRAY  = ( 40,  40,  40) #RGB value of grey (lighter black) - b
+BGCOLOR = BLACK #game background is black - b
 
-UP = 'up' 
-DOWN = 'down' 
-LEFT = 'left' 
-RIGHT = 'right' 
+UP = 'up' # assigns variable UP to str 'up'
+DOWN = 'down' # assigns variable DOWN to str 'down'
+LEFT = 'left' # assigns variable LEFT to str 'left'
+RIGHT = 'right' # assigns variable RIGHT to str 'right'
 
-HEAD = 0 # index of the worm's head
+HEAD = 0 # sets variable HEAD to value 0 to make code easier to read when indexing the worm's head
 
 def main():
-    global FPSCLOCK, DISPLAYSURF, BASICFONT
+    global FPSCLOCK, DISPLAYSURF, BASICFONT #sets global variables to be used in this function and other functions 
 
-    pygame.init()
+    pygame.init() # initialize all pygame functions -> needs to be run before using pygame
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT)) #displays the game window with the specified dimensions
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
@@ -127,7 +127,7 @@ def drawPressKeyMsg():
     pressKeyRect = pressKeySurf.get_rect()
     pressKeyRect.topleft = (WINDOWWIDTH - 200, WINDOWHEIGHT - 30)
     DISPLAYSURF.blit(pressKeySurf, pressKeyRect)
-#above function -> design and print of message prompting the viewer to enter a key to start the game
+#above function -> displays a message ('Press a key to play') at the bottom right corner of the screen, prompting the viewer to enter a key to start the game
 
 def checkForKeyPress():
     if len(pygame.event.get(QUIT)) > 0:
@@ -139,13 +139,14 @@ def checkForKeyPress():
     if keyUpEvents[0].key == K_ESCAPE:
         terminate()
     return keyUpEvents[0].key
-#above function -> checks for a key press and does what the key requests: quit the game when the quit button is pressed, 
+#above function -> checks for a key press aand does what the key requests: quit the game when the quit button is pressed, 
 
 def showStartScreen():
-    titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKGREEN)
-    titleSurf2 = titleFont.render('Wormy!', True, GREEN)
+    titleFont = pygame.font.Font('freesansbold.ttf', 100) # defines style and size of font for title 
+    titleSurf1 = titleFont.render('Wormy!', True, WHITE, DARKGREEN) # renders text, TRUE means the characters will have smooth edges, color of text (WHITE), color of text background(DARKGREEN) 
+    titleSurf2 = titleFont.render('Wormy!', True, GREEN) # renders text, TRUE means the characters will have smooth edges, color of text(GREEN) 
    
+
     degrees1 = 0
     degrees2 = 0
     while True:
@@ -185,9 +186,9 @@ def getRandomLocation():
 #                  above function is called when new random coordinates for an apple are needed
 
 def showGameOverScreen():
-    gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
-    gameSurf = gameOverFont.render('Game', True, WHITE)
-    overSurf = gameOverFont.render('Over', True, WHITE)
+    gameOverFont = pygame.font.Font('freesansbold.ttf', 150) # defines style and size of font for title 
+    gameSurf = gameOverFont.render('Game', True, WHITE) # renders text, TRUE means the characters will have smooth edges, color of text(WHITE)
+    overSurf = gameOverFont.render('Over', True, WHITE) # renders text, TRUE means the characters will have smooth edges, color of text(WHITE)
     gameRect = gameSurf.get_rect()
     overRect = overSurf.get_rect()
     gameRect.midtop = (WINDOWWIDTH / 2, 10)
