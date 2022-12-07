@@ -10,7 +10,7 @@
 import random, pygame, sys
 from pygame.locals import * #imports pygame and all of the neccessary functions that are neccessary to run the game - a
 
-FPS = 15 #sets game speed - 
+FPS = 15 #sets game speed 
 WINDOWWIDTH = 640 #game window width (x-direction)
 WINDOWHEIGHT = 480 #game window height (y-direction)
 CELLSIZE = 20 #size value for individual square
@@ -41,7 +41,7 @@ def main():
     pygame.init() # initialize all pygame functions -> needs to be run before using pygame
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT)) #displays the game window with the specified dimensions
-    BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
+    BASICFONT = pygame.font.Font('freesansbold.ttf', 18) # defines style and size of font for title
     pygame.display.set_caption('Wormy')
 
     
@@ -123,9 +123,9 @@ def runGame():
         FPSCLOCK.tick(FPS)
 
 def drawPressKeyMsg():
-    pressKeySurf = BASICFONT.render('Press a key to play.', True, DARKGRAY)
+    pressKeySurf = BASICFONT.render('Press a key to play.', True, DARKGRAY) # renders text, TRUE means the characters will have smooth edges, color of text (DARKGRAY) 
     pressKeyRect = pressKeySurf.get_rect()
-    pressKeyRect.topleft = (WINDOWWIDTH - 200, WINDOWHEIGHT - 30)
+    pressKeyRect.topleft = (WINDOWWIDTH - 200, WINDOWHEIGHT - 30) # postion of text on display
     DISPLAYSURF.blit(pressKeySurf, pressKeyRect)
 #above function -> displays a message ('Press a key to play') at the bottom right corner of the screen, prompting the viewer to enter a key to start the game
 
@@ -153,12 +153,12 @@ def showStartScreen():
         DISPLAYSURF.fill(BGCOLOR) #fills the display surface with a color
         rotatedSurf1 = pygame.transform.rotate(titleSurf1, degrees1)
         rotatedRect1 = rotatedSurf1.get_rect()
-        rotatedRect1.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 2)
+        rotatedRect1.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 2) # postion of text on display
         DISPLAYSURF.blit(rotatedSurf1, rotatedRect1)
 
         rotatedSurf2 = pygame.transform.rotate(titleSurf2, degrees2)
         rotatedRect2 = rotatedSurf2.get_rect()
-        rotatedRect2.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 2)
+        rotatedRect2.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 2) # postion of text on display
         DISPLAYSURF.blit(rotatedSurf2, rotatedRect2)
 # while True -> it rotates the two text "Wormy!'
         
@@ -191,8 +191,8 @@ def showGameOverScreen():
     overSurf = gameOverFont.render('Over', True, WHITE) # renders text, TRUE means the characters will have smooth edges, color of text(WHITE)
     gameRect = gameSurf.get_rect()
     overRect = overSurf.get_rect()
-    gameRect.midtop = (WINDOWWIDTH / 2, 10)
-    overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25)
+    gameRect.midtop = (WINDOWWIDTH / 2, 10) # postion of text on display 
+    overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25) # postion of text on display
     
     DISPLAYSURF.blit(gameSurf, gameRect)
     DISPLAYSURF.blit(overSurf, overRect)
@@ -210,7 +210,7 @@ def showGameOverScreen():
 def drawScore(score):
     scoreSurf = BASICFONT.render('Score: %s' % (score), True, WHITE) # renders text, TRUE means the characters will have smooth edges, color of text (WHITE)
     scoreRect = scoreSurf.get_rect()
-    scoreRect.topleft = (WINDOWWIDTH - 120, 10)
+    scoreRect.topleft = (WINDOWWIDTH - 120, 10) # postion of text on display
     DISPLAYSURF.blit(scoreSurf, scoreRect)
 #above function -> sets scoreboard visual with colour, size, and position
 
