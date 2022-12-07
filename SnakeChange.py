@@ -12,8 +12,8 @@ from pygame.locals import *
 
 
 FPS = 8 #changed
-WINDOWWIDTH = 1400 # CHANGED FROM 640 to 
-WINDOWHEIGHT = 800 # CHANGED FROM 480 TO 1080
+WINDOWWIDTH = 1400 # CHANGED
+WINDOWHEIGHT = 800 # CHANGED
 CELLSIZE = 20 
 assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size." 
 assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size." 
@@ -45,22 +45,22 @@ def main():
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT)) 
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
-    pygame.display.set_caption('Going Bananas')
+    pygame.display.set_caption('Going Bananas') #changed
     
-    o = random.choice(['i','j'])
-    if o == 'i':
-        showStartScreenHard()
-        global FPS
-        FPS = 20
-        while True:
-            runGame() 
-            showGameOverScreen()
+    o = random.choice(['i','j']) #added randomizer for easy and hard mode
+    if o == 'i': #added
+        showStartScreenHard() #added
+        global FPS #added
+        FPS = 20 #added 
+        while True: #added
+            runGame()  #added
+            showGameOverScreen() #added 
             
-    if o == 'j':
-        showStartScreenEasy()
-        while True:
-            runGame() 
-            showGameOverScreen()
+    if o == 'j': #added 
+        showStartScreenEasy() #added
+        while True: #added 
+            runGame()  #added 
+            showGameOverScreen() #added 
     
 
         
@@ -76,7 +76,7 @@ def runGame():
 
     
     apple = getRandomLocationApple()
-    pear = getRandomLocationPear()
+    pear = getRandomLocationPear() #added
     
 
     while True: 
@@ -164,13 +164,13 @@ def runGame():
         drawGrid()
         drawWorm(wormCoords)
         drawApple(apple)
-        drawPear(pear)
+        drawPear(pear) #added
         drawScore(len(wormCoords) - 3)
         pygame.display.update()
         FPSCLOCK.tick(FPS)
 
 def drawPressKeyMsg():
-    pressKeySurf = BASICFONT.render('Press a key to play.', True, WHITE)
+    pressKeySurf = BASICFONT.render('Press a key to play.', True, WHITE) #changed
     pressKeyRect = pressKeySurf.get_rect()
     pressKeyRect.topleft = (WINDOWWIDTH - 200, WINDOWHEIGHT - 30)
     DISPLAYSURF.blit(pressKeySurf, pressKeyRect)
@@ -191,8 +191,8 @@ def checkForKeyPress():
 
 def showStartScreenEasy():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('GOING', True, WHITE, DARKYELLOW)
-    titleSurf2 = titleFont.render('BANANAS!', True, YELLOW)
+    titleSurf1 = titleFont.render('GOING', True, WHITE, DARKYELLOW) #changed
+    titleSurf2 = titleFont.render('BANANAS!', True, YELLOW) #changed
    
     degrees1 = 0
     degrees2 = 0
@@ -221,9 +221,9 @@ def showStartScreenEasy():
         
         
         
-def showStartScreenHard():
-    titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('GOING', True, WHITE, LIGHTRED)
+def showStartScreenHard(): #added new screen for hard mode to differentiate between easy and hard mode 
+    titleFont = pygame.font.Font('freesansbold.ttf', 100) 
+    titleSurf1 = titleFont.render('GOING', True, WHITE, LIGHTRED) 
     titleSurf2 = titleFont.render('BANANAS!', True, RED)
 
     
@@ -248,8 +248,8 @@ def showStartScreenHard():
             return
         pygame.display.update()
         FPSCLOCK.tick(FPS)
-        degrees1 += 20
-        degrees2 += 40 
+        degrees1 += 20 #changed
+        degrees2 += 40 #changed
         
 
 
@@ -265,7 +265,7 @@ def getRandomLocationApple():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
 
 def getRandomLocationPear():
-    return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
+    return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)} #added 
 
 
 
@@ -274,8 +274,8 @@ def getRandomLocationPear():
 
 def showGameOverScreen():
     gameOverFont = pygame.font.Font('freesansbold.ttf', 90)
-    gameSurf = gameOverFont.render('YOU', True, WHITE)
-    overSurf = gameOverFont.render('LOST!', True, WHITE)
+    gameSurf = gameOverFont.render('YOU', True, WHITE) #changed
+    overSurf = gameOverFont.render('LOST!', True, WHITE) #changed
     gameRect = gameSurf.get_rect()
     overRect = overSurf.get_rect()
     gameRect.center = (WINDOWWIDTH / 2, 250)
